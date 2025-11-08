@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* 基础样式 */
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+  /* 自定义滚动条样式（替换原来的 scrollbar-* 类） */
+  textarea::-webkit-scrollbar,
+  .message-container::-webkit-scrollbar {
+    @apply w-1.5; /* 滚动条宽度 */
+  }
+  textarea::-webkit-scrollbar-thumb,
+  .message-container::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-300 dark:bg-gray-600; /* 滚动条滑块 */
+  }
+  textarea::-webkit-scrollbar-track,
+  .message-container::-webkit-scrollbar-track {
+    @apply bg-transparent; /* 滚动条轨道 */
+  }
+}
+
+/* 动画效果 */
+@layer utilities {
+  .animate-bounce {
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+}
+
+/* 自定义动画 */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+  .max-w-[80%] {
+    max-width: 85%;
+  }
+  .p-4 {
+    padding: 1rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* 深色模式过渡 */
+.dark {
+  color-scheme: dark;
+}
+
+/* 消息气泡hover效果优化 */
+.message-bubble {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.message-bubble:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
