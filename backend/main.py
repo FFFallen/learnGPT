@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import requests
 from openai import OpenAI, APIError, APIConnectionError, AuthenticationError
 from fastapi.middleware.cors import CORSMiddleware
 import os
